@@ -41,6 +41,7 @@ class Worker(val masterHost: String, val masterPort: Int, val memory: Int, val c
 
 object Worker {
   def main(args: Array[String]) {
+    //localhost 9999 localhost 8888 20480 24
     val host = args(0)
     val port = args(1).toInt
     val masterHost = args(2)

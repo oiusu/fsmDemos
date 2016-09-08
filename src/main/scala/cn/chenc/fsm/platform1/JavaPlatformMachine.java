@@ -1,6 +1,6 @@
 package cn.chenc.fsm.platform1;
 
-import cn.chenc.javafsm.judgefunc.ContextData;
+import cn.chenc.fsm.bean.ContextData;
 
 /**
  * Created by ChenC on 2016/9/6.

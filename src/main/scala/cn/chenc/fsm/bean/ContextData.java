@@ -1,4 +1,4 @@
-package cn.chenc.javafsm.judgefunc;
+package cn.chenc.fsm.bean;
 
 /**
  * Created by ChenC on 2016/9/6.
@@ -52,7 +52,7 @@ public class ContextData {
                 '}';
     }
 
-    public ContextData(Boolean isValid_, Boolean isFirst_, Boolean district_, Boolean isBusinessLine_) {
+    public ContextData(Boolean isValid_, Boolean isFirst_, Boolean isBusinessLine_,Boolean district_ ) {
         this.isValid_ = isValid_;
         this.isFirst_ = isFirst_;
         this.district_ = district_;

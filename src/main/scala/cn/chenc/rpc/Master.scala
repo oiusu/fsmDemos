@@ -61,7 +61,7 @@ class Master(val host: String, val port: Int) extends Actor {
 
 object Master {
   def main(args: Array[String]) {
-
+    //localhost 8888
     val host = args(0)
     val port = args(1).toInt
     // 准备配置

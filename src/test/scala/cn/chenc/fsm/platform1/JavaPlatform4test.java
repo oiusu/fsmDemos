@@ -6,9 +6,7 @@ package cn.chenc.fsm.platform1;
  */
 public class JavaPlatform4test {
 
-        /**
-         * ACCtrl的代码。
-         */
+
         public static void main(String[] args){
 
             JavaPlatformMachine pm = new JavaPlatformMachine();
