@@ -42,12 +42,6 @@ public class Context
     public void Request()
     {
         //如果当前step 是最后一步  nextStep 不执行
-//        if(!state.isFinalflag()){
-//            state.Handle(this);
-//        }
-//        System.out.println("trueFlag : "+trueFlag);
-//        System.out.println("state.isFinalflag() : "+state.isFinalflag());
-//        System.out.println("--------------------------");
         if(state.isFinalflag()){
             trueFlag = false;
 

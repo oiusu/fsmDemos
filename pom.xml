@@ -66,6 +66,13 @@
             <version>2.2.6</version>
         </dependency>
 
+        <!--Easy Rules 规则引擎-->
+        <dependency>
+            <groupId>org.easyrules</groupId>
+            <artifactId>easyrules-core</artifactId>
+            <version>2.3.0</version>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -93,6 +100,7 @@
                 </executions>
             </plugin>
 
+            <!--
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
@@ -126,6 +134,8 @@
                     </execution>
                 </executions>
             </plugin>
+
+            -->
         </plugins>
     </build>
 
