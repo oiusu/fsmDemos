@@ -45,9 +45,12 @@ public class Context
         if(state.isFinalflag()){
             trueFlag = false;
 
-        }else if (trueFlag == true){
-            state.Handle(this);
         }
+// else if (trueFlag == true){
+//            state.Handle(this);
+//        }
+
+        state.Handle(this);
     }
 }
 
