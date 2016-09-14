@@ -1,7 +1,6 @@
 package cn.chenc.fsm.statemode;
 
 import cn.chenc.fsm.bean.ContextData;
-import cn.chenc.fsm.statemode.Context;
 import cn.chenc.fsm.statemode.state.StateOpen;
 
 /**
@@ -12,7 +11,7 @@ public class StateModeTest {
     public static void main(String[] args) {
         // 设置Context的初始状态为ConcreteStateA
         ContextData data = new ContextData(true,false,true,true);
-        Context context = new Context(new StateOpen(),data);
+        StateModeContext context = new StateModeContext(new StateOpen(),data);
 
         // 不断地进行请求，同时更改状态
         int size = 4;// 请求迭代数

@@ -1,5 +1,7 @@
-package cn.chenc.fsm.squirrel;
+package cn.chenc.fsm.squirrel.sample;
 
+import cn.chenc.fsm.akkademo.service.PlatformMachineService;
+import cn.chenc.fsm.squirrel.FSMContextData;
 import org.squirrelframework.foundation.fsm.StateMachineBuilderFactory;
 import org.squirrelframework.foundation.fsm.UntypedAnonymousAction;
 import org.squirrelframework.foundation.fsm.UntypedStateMachine;
@@ -33,10 +35,10 @@ public class QuickStartController {
 
     // 2. Define State Machine Class
 
-    // 第二种定义注解注册
+    // 第二种定义注解注册 callMethod="fromOpenToNotFound", callMethod="fromOpenToStep1",
     @Transitions({
-            @Transit(from="Open", to="NotFound", on="ToNotFound", callMethod="fromOpenToNotFound", whenMvel="MyCondition:::(!context.getValid_())"),
-            @Transit(from="Open", to="Step1", on="ToStep1", callMethod="fromOpenToStep1", whenMvel="MyCondition:::(context.getValid_())"),
+            @Transit(from="Open", to="NotFound", on="ToNotFound",  whenMvel="MyCondition:::(!context.getValid_())"),
+            @Transit(from="Open", to="Step1", on="ToStep1",  whenMvel="MyCondition:::(context.getValid_())"),
     })
     @States({
             // @State(name="A", exitCallMethod="leftA"),
@@ -51,72 +53,77 @@ public class QuickStartController {
     })
     @StateMachineParameters(stateType=FSMState.class, eventType=FSMEvent.class, contextType=FSMContextData.class)
     static class StateMachineSample extends AbstractUntypedStateMachine {
+        PlatformMachineService service = new PlatformMachineService();
         //open -> NotFound
-        protected void fromOpenToNotFound(FSMState from, FSMState to, FSMEvent event, FSMContextData context) {
-            System.out.println(from+" --> "+to+" on event "+event+" with context "+context+" .");
-        }
+//        protected void fromOpenToNotFound(FSMState from, FSMState to, FSMEvent event, FSMContextData context) {
+//            System.out.println(from+" --> "+to+" on event "+event+" with context "+context+" .");
+//        }
 
         protected void ontoNotFound(FSMState from, FSMState to, FSMEvent event, FSMContextData context) {
             System.out.println("进入"+to+".");
+            service.notFound();
         }
         //open -> Step1
-        protected void fromOpenToStep1(FSMState from, FSMState to, FSMEvent event, FSMContextData context) {
-            System.out.println(from+" --> "+to+" on event "+event+" with context "+context+" .");
-        }
+//        protected void fromOpenToStep1(FSMState from, FSMState to, FSMEvent event, FSMContextData context) {
+//            System.out.println(from+" --> "+to+" on event "+event+" with context "+context+" .");
+//        }
 
         protected void ontoStep1(FSMState from, FSMState to, FSMEvent event, FSMContextData context) {
             System.out.println("进入"+to+".");
         }
 
         //Step1 -> ReturnDimension
-        protected void fromStep1ToReturnDimension(FSMState from, FSMState to, FSMEvent event, FSMContextData context) {
-            System.out.println(from+" --> "+to+" on event "+event+" with context "+context+" .");
-        }
+//        protected void fromStep1ToReturnDimension(FSMState from, FSMState to, FSMEvent event, FSMContextData context) {
+//            System.out.println(from+" --> "+to+" on event "+event+" with context "+context+" .");
+//        }
 
         protected void ontoReturnDimension(FSMState from, FSMState to, FSMEvent event, FSMContextData context) {
             System.out.println("进入"+to+".");
+            service.returnDimension();
         }
 
         //Step1 -> Step2
-        protected void fromStep1ToStep2(FSMState from, FSMState to, FSMEvent event, FSMContextData context) {
-            System.out.println(from+" --> "+to+" on event "+event+" with context "+context+" .");
-        }
+//        protected void fromStep1ToStep2(FSMState from, FSMState to, FSMEvent event, FSMContextData context) {
+//            System.out.println(from+" --> "+to+" on event "+event+" with context "+context+" .");
+//        }
 
         protected void ontoStep2(FSMState from, FSMState to, FSMEvent event, FSMContextData context) {
             System.out.println("进入"+to+".");
         }
 
         //Step2 -> PreciseAdvertising
-        protected void fromStep2ToPreciseAdvertising(FSMState from, FSMState to, FSMEvent event, FSMContextData context) {
-            System.out.println(from+" --> "+to+" on event "+event+" with context "+context+" .");
-        }
+//        protected void fromStep2ToPreciseAdvertising(FSMState from, FSMState to, FSMEvent event, FSMContextData context) {
+//            System.out.println(from+" --> "+to+" on event "+event+" with context "+context+" .");
+//        }
 
         protected void ontoPreciseAdvertising(FSMState from, FSMState to, FSMEvent event, FSMContextData context) {
             System.out.println("进入"+to+".");
+            service.preciseAdvertising();
         }
 
         //Step2 -> Step3
-        protected void fromStep2ToStep3(FSMState from, FSMState to, FSMEvent event, FSMContextData context) {
-            System.out.println(from+" --> "+to+" on event "+event+" with context "+context+" .");
-        }
+//        protected void fromStep2ToStep3(FSMState from, FSMState to, FSMEvent event, FSMContextData context) {
+//            System.out.println(from+" --> "+to+" on event "+event+" with context "+context+" .");
+//        }
 
         protected void ontoStep3(FSMState from, FSMState to, FSMEvent event, FSMContextData context) {
             System.out.println("进入"+to+".");
         }
 
         //Step3 -> Top9
-        protected void fromStep3ToTop9(FSMState from, FSMState to, FSMEvent event, FSMContextData context) {
-            System.out.println(from+" --> "+to+" on event "+event+" with context "+context+" .");
-        }
+//        protected void fromStep3ToTop9(FSMState from, FSMState to, FSMEvent event, FSMContextData context) {
+//            System.out.println(from+" --> "+to+" on event "+event+" with context "+context+" .");
+//        }
 
         protected void ontoTop9(FSMState from, FSMState to, FSMEvent event, FSMContextData context) {
             System.out.println("进入"+to+".");
+            service.top9();
         }
 
         //Step3 -> Step4
-        protected void fromStep3ToStep4(FSMState from, FSMState to, FSMEvent event, FSMContextData context) {
-            System.out.println(from+" --> "+to+" on event "+event+" with context "+context+" .");
-        }
+//        protected void fromStep3ToStep4(FSMState from, FSMState to, FSMEvent event, FSMContextData context) {
+//            System.out.println(from+" --> "+to+" on event "+event+" with context "+context+" .");
+//        }
 
         protected void ontoStep4(FSMState from, FSMState to, FSMEvent event, FSMContextData context) {
             System.out.println("进入"+to+".");
@@ -170,7 +177,7 @@ public class QuickStartController {
 
 
     public static void main(String[] args) {
-        FSMContextData contextData = new FSMContextData(false,false,false,false);
+        FSMContextData contextData = new FSMContextData(true,false,false,false);
         DecisionMaker decisionMaker = new DecisionMaker("DecisionMaker");
         // 3. Build State Transitions
         UntypedStateMachineBuilder builder = StateMachineBuilderFactory.create(StateMachineSample.class);
@@ -190,17 +197,20 @@ public class QuickStartController {
         builder.onEntry(FSMState.Step1).perform(decisionMaker);
         builder.onExit(FSMState.Step1).perform(decisionMaker);
         builder.transitions().from(FSMState.Step1).toAmong(FSMState.ReturnDimension, FSMState.Step2)
-                .onEach(FSMEvent.ToReturnDimension, FSMEvent.ToStep2).callMethod("fromStep1ToReturnDimension|fromStep1ToStep2");
+                .onEach(FSMEvent.ToReturnDimension, FSMEvent.ToStep2);
+                //.callMethod("fromStep1ToReturnDimension|fromStep1ToStep2");
 
         builder.onEntry(FSMState.Step2).perform(decisionMaker);
         builder.onExit(FSMState.Step2).perform(decisionMaker);
         builder.transitions().from(FSMState.Step2).toAmong(FSMState.PreciseAdvertising, FSMState.Step3)
-                .onEach(FSMEvent.ToPreciseAdvertising, FSMEvent.ToStep3).callMethod("fromStep2ToPreciseAdvertising|fromStep2ToStep3");
+                .onEach(FSMEvent.ToPreciseAdvertising, FSMEvent.ToStep3);
+                //.callMethod("fromStep2ToPreciseAdvertising|fromStep2ToStep3");
 
         builder.onEntry(FSMState.Step3).perform(decisionMaker);
         builder.onExit(FSMState.Step3).perform(decisionMaker);
         builder.transitions().from(FSMState.Step3).toAmong(FSMState.Top9, FSMState.Step4)
-                .onEach(FSMEvent.ToTop9, FSMEvent.ToStep4).callMethod("fromStep3ToTop9|fromStep3ToStep4");
+                .onEach(FSMEvent.ToTop9, FSMEvent.ToStep4);
+                //.callMethod("fromStep3ToTop9|fromStep3ToStep4");
 
 
         // 4. Use State Machine

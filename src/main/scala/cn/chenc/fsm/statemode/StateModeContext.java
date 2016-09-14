@@ -7,7 +7,7 @@ import cn.chenc.fsm.bean.ContextData;
  */
 
 /// Context类，维护一个ConcreteState子类的实例，这个实例定义当前的状态。
-public class Context
+public class StateModeContext
 {
     private State state;
 
@@ -30,7 +30,7 @@ public class Context
     }
 
     /// 定义Context的初始状态
-    public Context(State state ,ContextData data )
+    public StateModeContext(State state , ContextData data )
     {
         this.data = data;
         this.state = state;

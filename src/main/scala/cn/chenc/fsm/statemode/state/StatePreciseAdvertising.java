@@ -1,6 +1,6 @@
 package cn.chenc.fsm.statemode.state;
 
-import cn.chenc.fsm.statemode.Context;
+import cn.chenc.fsm.statemode.StateModeContext;
 import cn.chenc.fsm.statemode.State;
 
 /**
@@ -8,7 +8,7 @@ import cn.chenc.fsm.statemode.State;
  */
 public class StatePreciseAdvertising extends State {
     @Override
-    public void Handle(Context context) {
+    public void Handle(StateModeContext context) {
         System.out.println("当前状态是 preciseAdvertising(精准广告)  do something");
     }
 
