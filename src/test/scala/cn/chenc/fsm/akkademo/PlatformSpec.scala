@@ -14,28 +14,17 @@ class PlatformSpec extends TestKit(ActorSystem("platform-system"))
   with FunSpecLike
   //with StopSystemAfterAll
   with ImplicitSender {
-
-
+  val begin: Long = System.currentTimeMillis()
   describe("just 4 test") {
-
     it("TestKit Demo") {
       val platformMachine = TestActorRef(Props(new PlatformMachine()))
-
-      //expectMsg(CurrentState(platformMachine, Open))
       platformMachine ! SetInitData(true,false,false,true)
       platformMachine ! ToNotFound
       platformMachine ! ToReturnDimension
       platformMachine ! ToPreciseAdvertising
       platformMachine ! ToTop9
-
-
-//      expectMsg(7)
     }
-
   }
-
-
-
-
-
+  val end: Long = System.currentTimeMillis()
+  System.out.println("方法耗时："+(end-begin));
 }

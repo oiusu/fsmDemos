@@ -17,7 +17,7 @@ import org.squirrelframework.foundation.fsm.impl.AbstractUntypedStateMachine;
  E代表实现的事件类型。
  C代表实现的外部上下文类型。
  */
-
+/**
 public class QuickStartController {
 
     // 1. Define State Machine Event
@@ -224,3 +224,4 @@ public class QuickStartController {
         fsm.terminate();
     }
 }
+ */

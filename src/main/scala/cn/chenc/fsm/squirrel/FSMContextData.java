@@ -4,63 +4,49 @@ package cn.chenc.fsm.squirrel;
  * Created by ChenC on 2016/9/13.
  */
 public class FSMContextData {
+    private Boolean valid;//广告位是否有效
+    private Boolean privateAD;//是否私有广告位
+    private Boolean privateAdvertiser;//是否私有广告主
+    private Boolean fixedDelivery;//广告位是否有定投广告计划
+    private Boolean unFixedPmp;//是否有非定投PMP广告计划
+    private Boolean unFixedUnPmp;//是否有非定投非PMP广告计划
+    private Boolean noMaterialDelivery;//是否没有素材可投
 
-    private Boolean isValid_;
-    private Boolean isFirst_;
-    private Boolean isBusinessLine_;
-    private Boolean district_;
-
-    public Boolean getValid_() {
-        return isValid_;
+    public Boolean isValid() {
+        return valid;
     }
 
-    public void setValid_(Boolean valid_) {
-        isValid_ = valid_;
+    public Boolean isPrivateAD() {
+        return privateAD;
     }
 
-    public Boolean getFirst_() {
-        return isFirst_;
+    public Boolean isPrivateAdvertiser() {
+        return privateAdvertiser;
     }
 
-    public void setFirst_(Boolean first_) {
-        isFirst_ = first_;
+    public Boolean isFixedDelivery() {
+        return fixedDelivery;
     }
 
-    public Boolean getBusinessLine_() {
-        return isBusinessLine_;
+    public Boolean isUnFixedPmp() {
+        return unFixedPmp;
     }
 
-    public void setBusinessLine_(Boolean businessLine_) {
-        isBusinessLine_ = businessLine_;
+    public Boolean isUnFixedUnPmp() {
+        return unFixedUnPmp;
     }
 
-    public Boolean getDistrict_() {
-        return district_;
+    public Boolean isNoMaterialDelivery() {
+        return noMaterialDelivery;
     }
 
-    public void setDistrict_(Boolean district_) {
-        this.district_ = district_;
+    public FSMContextData(Boolean valid, Boolean privateAD, Boolean privateAdvertiser, Boolean fixedDelivery, Boolean unFixedPmp, Boolean unFixedUnPmp, Boolean noMaterialDelivery) {
+        this.valid = valid;
+        this.privateAD = privateAD;
+        this.privateAdvertiser = privateAdvertiser;
+        this.fixedDelivery = fixedDelivery;
+        this.unFixedPmp = unFixedPmp;
+        this.unFixedUnPmp = unFixedUnPmp;
+        this.noMaterialDelivery = noMaterialDelivery;
     }
-
-    @Override
-    public String toString() {
-        return "ContextData{" +
-                "isValid_=" + isValid_ +
-                ", isFirst_=" + isFirst_ +
-                ", isBusinessLine_=" + isBusinessLine_ +
-                ", district_=" + district_ +
-                '}';
-    }
-
-    public FSMContextData(Boolean isValid_, Boolean isFirst_, Boolean isBusinessLine_,Boolean district_ ) {
-        this.isValid_ = isValid_;
-        this.isFirst_ = isFirst_;
-        this.district_ = district_;
-        this.isBusinessLine_ = isBusinessLine_;
-    }
-
-    public FSMContextData() {
-    }
-
-
 }

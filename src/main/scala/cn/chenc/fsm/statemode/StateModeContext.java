@@ -46,10 +46,6 @@ public class StateModeContext
             trueFlag = false;
 
         }
-// else if (trueFlag == true){
-//            state.Handle(this);
-//        }
-
         state.Handle(this);
     }
 }

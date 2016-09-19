@@ -20,7 +20,6 @@ public class StateStep1 extends State {
             context.setState(new StateStep2());
         }
     }
-
     @Override
     public boolean isFinalflag() {
         return false;

@@ -17,8 +17,8 @@ import org.squirrelframework.foundation.fsm.impl.AbstractUntypedStateMachine;
 @Transitions({
         @Transit(from="Open", to="Start", on="ToStart"),
         @Transit(from="PublicDelivery", to="MeteriaMatchLogicDiagram", on="ToMeteriaMatchLogicDiagram"),
-        @Transit(from="MeteriaMatchLogic1", to="Step4", on="ToStep4",whenMvel="MyCondition:::(context!=null && context>=0 && context<60)"),
-        @Transit(from="MeteriaMatchLogic2", to="Step5", on="ToStep5",whenMvel="MyCondition:::(context!=null && context>=0 && context<60)"),
+        @Transit(from="MeteriaMatchLogic1", to="Step4", on="ToStep4",whenMvel="MyCondition:::(context!=null && context.isNoMaterialDelivery())"),
+        @Transit(from="MeteriaMatchLogic2", to="Step5", on="ToStep5",whenMvel="MyCondition:::(context!=null && context.isNoMaterialDelivery())"),
 })
 @States({
         @State(name="Start", entryCallMethod="ontoStart"),
@@ -41,13 +41,11 @@ public  class FSMController extends AbstractUntypedStateMachine {
         ToStart,ToStep1,ToStep2,ToStep3,ToStep4,ToStep5,
         ToNotFound, ToPublicDelivery,ToMeteriaMatchLogicDiagram,
         ToMeteriaMatchLogic1,ToMeteriaMatchLogic2,ToMeteriaMatchLogic3
-        //ToReturnDimension, ToPreciseAdvertising, ToTop9,
     }
     public enum FSMState {
         Open,Start,Step1,Step2,Step3,Step4,Step5,
         NotFound,PublicDelivery,MeteriaMatchLogicDiagram,
         MeteriaMatchLogic1,MeteriaMatchLogic2,MeteriaMatchLogic3
-        //ReturnDimension,PreciseAdvertising,Top9
     }
 
     protected void ontoStart(FSMState from, FSMState to, FSMEvent event, FSMContextData context) {

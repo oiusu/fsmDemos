@@ -5,10 +5,10 @@ package cn.chenc.fsm.bean;
  */
 public class ContextData {
 
-    private Boolean isValid_;
-    private Boolean isFirst_;
-    private Boolean isBusinessLine_;
-    private Boolean district_;
+    private Boolean isValid_;//广告位是否有效
+    private Boolean isFirst_;//是否第一次请求
+    private Boolean isBusinessLine_;//是否属于业务线广告位
+    private Boolean district_;//是否有地域
 
     public Boolean getValid_() {
         return isValid_;

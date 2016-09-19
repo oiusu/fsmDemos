@@ -6,7 +6,6 @@ import cn.chenc.fsm.bean.ContextData;
  * Created by ChenC on 2016/9/6.
  */
 public class JavaPlatformMachine {
-
     ContextData data = new ContextData();
     JavaPlatformState state = JavaPlatformState.OPEN;
     //Action
@@ -22,5 +21,4 @@ public class JavaPlatformMachine {
     public void district(){
         state.district(this);
     }
-
 }
